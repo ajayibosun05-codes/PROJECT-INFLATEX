@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>INFLATEX · Live Market Pulse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="logo">
+      <i>▲</i>
+      <div>
+        INFLATEX
+        <div class="sub" style="font-weight:500; letter-spacing:.02em">Making inflation visible, one community at a time</div>
+      </div>
+    </div>
+    <div class="sp"></div>
+    <span class="demo">DEMO DATA · SIMULATED</span>
+    <span class="live"><b></b>LIVE <span id="clk" style="color:var(--mute); font-weight:500"></span></span>
+    <button class="pill" id="th">◐ Theme</button>
+  </header>
+
+  <nav class="tabs" id="tabs"></nav>
+
+  <!-- ── Live Market tab ─────────────────────────────────────── -->
+  <div id="v-live">
+    <div class="bar" id="bar"></div>
+
+    <div class="tick">
+      <div class="track" id="trk"></div>
+    </div>
+
+    <div class="kpis" id="kp"></div>
+
+    <div class="main">
+      <div class="card ch">
+        <h2>PRICE MOVEMENT · % CHANGE SINCE SESSION OPEN</h2>
+        <p>Gold line is the basket average. Click a product on the right to add or remove its line. Hover the chart to compare.</p>
+        <canvas id="cv"></canvas>
+        <div id="tip"></div>
+      </div>
+
+      <div class="col">
+        <div class="card bd">
+          <h2><em style="background:var(--up)"></em>INFLATING · PRICES RISING</h2>
+          <div id="bu"></div>
+        </div>
+        <div class="card bd">
+          <h2><em style="background:var(--down)"></em>DEFLATING · PRICES FALLING</h2>
+          <div id="bdn"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── My Inflation Rate tab ────────────────────────────────── -->
+  <div id="v-me" style="display:none">
+    <div class="two">
+      <div class="card pad">
+        <h3>BUILD YOUR HOUSEHOLD BASKET</h3>
+        <p class="sub">Monthly quantities. Pick a preset or adjust each item.</p>
+        <div id="me-in" style="margin-top:10px"></div>
+      </div>
+      <div class="card pad" id="me-out"></div>
+    </div>
+  </div>
+
+  <!-- ── Report a Price tab ────────────────────────────────────── -->
+  <div id="v-rep" style="display:none">
+    <div class="two">
+      <div class="card pad">
+        <h3>REPORT A PRICE</h3>
+        <p class="sub">Tell the community what you paid. Demo only: nothing is saved.</p>
+        <div class="fm">
+          <label>Product<select id="rp"></select></label>
+          <label>Market<select id="rm"></select></label>
+          <label>Price paid (₦)<input id="rv" type="number" min="0"></label>
+          <button class="pill on" id="rs">Submit report</button>
+          <div id="rmsg" class="sub"></div>
+        </div>
+      </div>
+      <div class="card pad">
+        <h3>LIVE COMMUNITY REPORTS <span class="cnt" id="tc">0</span></h3>
+        <p class="sub">Simulated reporters, graded against the live community price.</p>
+        <div id="feed" class="feed"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Lagos Heatmap tab ─────────────────────────────────────── -->
+  <div id="v-map" style="display:none">
+    <div class="two">
+      <div class="card pad">
+        <h3>LAGOS PRICE HEATMAP</h3>
+        <p class="sub">Monthly cost of your basket by market. Schematic map, not to scale.</p>
+        <div id="hm"></div>
+      </div>
+      <div class="card pad">
+        <h3>CHEAPEST FOR YOUR BASKET</h3>
+        <div id="hl" style="margin-top:8px"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">All figures are simulated demo data for illustration. No real market sources are used and no causes of price changes are implied.</div>
+
+</div>
+
+<script src="data.js"></script>
+<script src="live.js"></script>
+<script src="features.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
